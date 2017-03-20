@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script src="js/jq/jquery.min.js"></script>
+<script src="js/action.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CHAT</title>
+</head>
+
+<body>
+<table>
+    <tr>
+        <td>
+            <iframe id="chatFrame" height="400" width="800" style="border: 1px solid blue" srcdoc="<html></html>"></iframe>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                <div id="newMessageArea" contenteditable="true" style="border: 1px dashed orangered"></div>
+                <input type="button" id="loadMessagesButton" value="Send"/>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="result"></div>
+        </td>
+    </tr>
+</table>
+</body>
+
+</html>
