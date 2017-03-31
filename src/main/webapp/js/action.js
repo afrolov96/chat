@@ -42,7 +42,7 @@ $(document).ready(function () {
 
     function renderMessage(messageBody) {
         messageBody = messageBody.replace(new RegExp("\n","g"),"<br>");
-        messageBody = "<div>" + messageBody + "</div>";
+        messageBody = "<div class='msg'>" + messageBody + "<img class='emoji' src='http://localhost:8080/pics/emoji/png_64/1f60c.png'></div>";
         return messageBody
     }
 

@@ -1,0 +1,14 @@
+#chatFrame {
+    border: 1px solid blue;
+}
+
+img.emoji {
+    width: 20px;
+    position: relative;
+    bottom: -5px;
+}
+
+div.msg {
+    padding-bottom: 3px;
+    padding-top: 3px;
+}

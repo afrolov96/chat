@@ -40,11 +40,11 @@ public class MessagesServlet extends HttpServlet {
 
         Enumeration<String> params = req.getParameterNames();
 
-        while (params.hasMoreElements()) {
+        /*while (params.hasMoreElements()) {
             String p_name = params.nextElement();
             System.out.println(">>> " + p_name + " = " + req.getParameter(p_name));
         }
-
+*/
         DataFactory dataFactory = new DataFactory();
         Iterable<Message> messages = dataFactory.loadMessages(Long.parseLong(req.getParameter("p_now")));
         resp.getWriter().write(gson.toJson(messages));
