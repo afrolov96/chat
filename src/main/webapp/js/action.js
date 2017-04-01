@@ -10,7 +10,7 @@ $(document).ready(function () {
      this.contentWindow.scrollBy(0, 100000)
      });*/
 
-    $('#loadMessagesButton').click(addNewMessage);
+    $('#sendMessage').click(addNewMessage);
 
     function addNewMessage() {
         var params = {};
@@ -18,6 +18,8 @@ $(document).ready(function () {
         params['messageBody'] = newMessageArea.html();
         $.post('messages', {
             params: JSON.stringify(params)
+        }).done(function () {
+            newMessageArea.html("");
         });
     }
 
@@ -42,11 +44,10 @@ $(document).ready(function () {
 
     function renderMessage(messageBody) {
         messageBody = messageBody.replace(new RegExp("\n","g"),"<br>");
-        messageBody = "<div class='msg'>" + messageBody + "<img class='emoji' src='http://localhost:8080/pics/emoji/png_64/1f60c.png'></div>";
+        messageBody = "<div class='msg'>" + messageBody + "<img class='emoji' src='/pics/emoji/png_64/1f60c.png'></div>";
         return messageBody
     }
 
     setInterval(loadNewMessages, 500);
-
 
 });

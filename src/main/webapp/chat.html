@@ -13,20 +13,25 @@
 <body>
 <table>
     <tr>
-        <td>
+        <td colspan="2">
             <iframe id="chatFrame" height="400" width="800" srcdoc="<html><link href='css/styles.css' rel='stylesheet'></html>"></iframe>
         </td>
     </tr>
     <tr>
         <td>
             <div>
-                <div id="newMessageArea" contenteditable="true" style="border: 1px dashed orangered"></div>
-                <input type="button" id="loadMessagesButton" value="Send"/>
+                <div id="newMessageArea" contenteditable="true"></div>
+                <button id="sendMessage">Send</button>
+            </div>
+        </td>
+        <td>
+            <div id="emojiArea">
+
             </div>
         </td>
     </tr>
     <tr>
-        <td>
+        <td colspan="2">
             <div id="result"></div>
         </td>
     </tr>

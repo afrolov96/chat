@@ -4,14 +4,17 @@ import com.google.gson.Gson;
 import db.DataFactory;
 import db.PostgresCP;
 import models.Message;
+import utils.EmojiCash;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.util.Enumeration;
+import java.util.Map;
 import java.util.Properties;
 
 
@@ -29,6 +32,12 @@ public class MessagesServlet extends HttpServlet {
             PostgresCP.init(properties);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        String picsPath = getServletContext().getRealPath(File.separator) + "\\pics\\emoji\\png_64";
+        System.out.println(">>> " + picsPath);
+        System.out.println(">>> pics count " + EmojiCash.getInstance(picsPath).size());
+        for (Map.Entry<String, String> file : EmojiCash.getInstance(picsPath).entrySet()) {
+            System.out.println(">>>\t" + file.getKey() + " : " + file.getValue());
         }
     }
 
