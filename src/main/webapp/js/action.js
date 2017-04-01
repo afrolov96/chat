@@ -3,6 +3,7 @@ $(document).ready(function () {
     var updateInProcces = false;
     var chatFrame = $('#chatFrame');
     var newMessageArea = $('#newMessageArea');
+    var emojiArea = $('#emojiArea');
     var lastMessageTimeStamp = 0;
 
 
@@ -11,6 +12,19 @@ $(document).ready(function () {
      });*/
 
     $('#sendMessage').click(addNewMessage);
+
+    function loadEmoji() {
+        $.get('emoji').done(function (data) {
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++) {
+                    emojiArea.append('<img class="emoji" src="' + data[i].path + '">');
+                    if ((i + 1) % 20 == 0) {
+                        emojiArea.append('<br>');
+                    }
+                }
+            }
+        })
+    }
 
     function addNewMessage() {
         var params = {};
@@ -43,11 +57,12 @@ $(document).ready(function () {
     }
 
     function renderMessage(messageBody) {
-        messageBody = messageBody.replace(new RegExp("\n","g"),"<br>");
+        messageBody = messageBody.replace(new RegExp("\n", "g"), "<br>");
         messageBody = "<div class='msg'>" + messageBody + "<img class='emoji' src='/pics/emoji/png_64/1f60c.png'></div>";
         return messageBody
     }
 
     setInterval(loadNewMessages, 500);
+    loadEmoji();
 
 });
