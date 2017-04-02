@@ -33,7 +33,7 @@ $(document).ready(function () {
 
         console.log('>>> emoji clicked ' + $(this).attr('src'));
         newMessageArea.focus();
-        pasteHtmlAtCaret(img_smiley); //adding html at cursorlocation BY - Tim Down
+        pasteHtmlAtCaret(img_smiley + "&nbsp"); //adding html at cursorlocation BY - Tim Down
         return false;
     }
 
@@ -106,7 +106,7 @@ $(document).ready(function () {
 
     function renderMessage(messageBody) {
         messageBody = messageBody.replace(new RegExp("\n", "g"), "<br>");
-        messageBody = "<div class='msg'>" + messageBody + "<img class='emoji' src='/pics/emoji/png_64/1f60c.png'></div>";
+        messageBody = "<div class='msg'>" + messageBody + "</div>";
         return messageBody
     }
 
